@@ -22,7 +22,7 @@ namespace Taskify.Api.Functions
 
     [FunctionName("GetRootTask")]
     public async Task<IActionResult> RunRoot(
-    [HttpTrigger(AuthorizationLevel.User, "get", Route = "task/{id}")] HttpRequest req,
+    [HttpTrigger(AuthorizationLevel.Function, "get", Route = "task/{id}")] HttpRequest req,
     ILogger log,
     Guid id)
     {

@@ -22,7 +22,7 @@ namespace Taskify.Api.Functions
 
     [FunctionName("SetParentTask")]
     public async Task<IActionResult> Run(
-        [HttpTrigger(AuthorizationLevel.User, "put", Route = "task/parent")] HttpRequest req,
+        [HttpTrigger(AuthorizationLevel.Function, "put", Route = "task/parent")] HttpRequest req,
         ILogger log,
         ClaimsPrincipal claims)
     {
