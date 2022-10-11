@@ -24,7 +24,7 @@ namespace Taskify.Api.Functions
 
     [FunctionName("UpdateTask")]
     public async Task<IActionResult> Run(
-        [HttpTrigger(AuthorizationLevel.Function, "put", Route = "task")] HttpRequest req,
+        [HttpTrigger(AuthorizationLevel.Anonymous, "put", Route = "task")] HttpRequest req,
         ILogger log)
     {
       try

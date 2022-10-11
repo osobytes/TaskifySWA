@@ -20,7 +20,7 @@ namespace Taskify.Api.Functions
 
     [FunctionName("GetTasks")]
     public async Task<IActionResult> Run(
-        [HttpTrigger(AuthorizationLevel.Function, "get", Route = "tasks")] HttpRequest req,
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "tasks")] HttpRequest req,
         ILogger log)
     {
       try

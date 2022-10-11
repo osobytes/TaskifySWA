@@ -22,7 +22,7 @@ namespace Taskify.Api.Functions
 
     [FunctionName("GetRootTask")]
     public async Task<IActionResult> RunRoot(
-    [HttpTrigger(AuthorizationLevel.Function, "get", Route = "task/{id}")] HttpRequest req,
+    [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "task/{id}")] HttpRequest req,
     ILogger log,
     Guid id)
     {
@@ -42,7 +42,7 @@ namespace Taskify.Api.Functions
 
     [FunctionName("GetTask")]
     public async Task<IActionResult> Run(
-        [HttpTrigger(AuthorizationLevel.Function, "get", Route = "task/{id}/{parentId}")] HttpRequest req,
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "task/{id}/{parentId}")] HttpRequest req,
         ILogger log,
         Guid id,
         Guid parentId)
