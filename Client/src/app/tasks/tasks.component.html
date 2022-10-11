@@ -1,0 +1,36 @@
+<button class="btn btn-primary addTaskBtn" (click)="open(content)">+ Create Task</button>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Created By</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <td><a href="#" [routerLink]="">{{ task.title }}</a></td>
+        <td>{{ task.description }}</td>
+        <td>{{ task.createdBy }}</td>
+      </tr>
+    </tbody>
+</table>
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Add New Task</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="addTaskForm">
+            <div class="input-group mb-3">
+                <input name="" type="text"  class="form-control" formControlName="addTaskFormModalTitle" placeholder="Task Title" aria-label="Task Title">
+            </div>
+            <div class="input-group mb-3">
+                <textarea name="" class="form-control" formControlName="addTaskFormModalDescription" placeholder="Task Description" aria-label="Task Description"></textarea>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" [disabled]="loading || !addTaskForm.valid" class="btn btn-outline-dark" (click)="addTaskSubmit()">Create</button>
+    </div>
+</ng-template>
